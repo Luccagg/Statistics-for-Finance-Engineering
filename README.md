@@ -14,8 +14,7 @@
 ![t](imgs/problem2.png)
 
 **Solution**:
-> That's trivial in R because to compute the log return for GM and plotting the simple returns
-versus the log returns and computing their correlations, the R function cor() does this if cor() = 1 then they are "equal".
-The graph of log return vs simple return show this
+> That's trivial in R because the native function cor() calculates the correlation between the two returns
+
 ![t](imgs/log_vs_simple.png)
 ![t](imgs/correlation_gm.png)
