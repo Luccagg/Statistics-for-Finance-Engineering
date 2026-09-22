@@ -15,6 +15,9 @@
 
 **Solution**:
 > Logarithm return vs Simple Return of General Motors
+
 ![t](imgs/log_vs_simple.png)
+
 > That's trivial in R because the native function cor() calculates the correlation between the two returns
+
 ![t](imgs/correlation_gm.png)
