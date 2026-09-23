@@ -42,8 +42,8 @@ out its $50,000 investment. The hedge fund is said to be leveraged 20:1 since
 its position is 20 times the amount of its own capital invested.
 Suppose that the daily log returns on the stock have a mean of 0.05/year
 and a standard deviation of 0.23/year.
-√ These can be converted to rates per
-trading day by dividing by 253 and 253, respectively.
+These can be converted to rates per
+trading day by dividing by 253 and sqrt(253), respectively.
 
 **Problem 4**: *Simulating the risk of a hedge fund leveraged position*
 ![t](imgs/problem4.png)
