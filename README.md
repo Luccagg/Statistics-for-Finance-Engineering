@@ -31,21 +31,16 @@
 ![t](imgs/msft_mrk_plot.png)
 
 # Simulations
-Hedge funds can earn high proﬁts through the use of leverage, but leverage
-also creates high risk. The simulations in this section explore the eﬀects of
-leverage in a simpliﬁed setting.
-Suppose a hedge fund owns $1,000,000 of stock and used $50,000 of its
-own capital and $950,000 in borrowed money for the purchase. Suppose that
-if the value of the stock falls below $950,000 at the end of any trading day,
-then the hedge fund will sell all the stock and repay the loan. This will wipe
-out its $50,000 investment. The hedge fund is said to be leveraged 20:1 since
-its position is 20 times the amount of its own capital invested.
-Suppose that the daily log returns on the stock have a mean of 0.05/year
-and a standard deviation of 0.23/year.
-These can be converted to rates per
-trading day by dividing by 253 and sqrt(253), respectively.
+Hedge funds can earn high profits through the use of leverage, but leverage also creates high risk[cite: 1]. The simulations in this section explore the effects of leverage in a simplified setting[cite: 1].
+
+Suppose a hedge fund owns $1,000,000 of stock and used $50,000 of its own capital and $950,000 in borrowed money for the purchase[cite: 1]. Suppose that if the value of the stock falls below $950,000 at the end of any trading day, then the hedge fund will sell all the stock and repay the loan[cite: 1]. This will wipe out its $50,000 investment[cite: 1]. The hedge fund is said to be leveraged 20:1 since its position is 20 times the amount of its own capital invested[cite: 1].
+
+Suppose that the daily log returns on the stock have a mean of 0.05/year and a standard deviation of 0.23/year[cite: 1]. These can be converted to rates per trading day by dividing by 253 and sqrt(253), respectively[cite: 1].
 
 **Problem 4**: *Simulating the risk of a hedge fund leveraged position*
 ![t](imgs/problem4.png)
 
-**solution**:
+**Solution**:
+> The `problem4.R` script simulates daily stock price paths utilizing a random walk model derived from the annualized parameters scaled down to daily trading intervals[cite: 1]. By tracking the daily valuation of the portfolio, the simulation calculates the likelihood that the stock falls below the $950,000 margin threshold, triggering a forced liquidation and a complete loss of the $50,000 capital investment[cite: 1].
+
+![t](imgs/simulation_plot.png)
