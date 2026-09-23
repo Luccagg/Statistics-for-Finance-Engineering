@@ -45,7 +45,7 @@ Suppose that the daily log returns on the stock have a mean of 0.05/year and a s
 
 > When this code runs we get `mean(below) == 0,50988` which is roughly 51%. This means that for the 100,000 simulated paths about 51,000 of them experienced a dip below $950.000 at some point during the 45 days window. This means there is over a 50% chance (essentially a coin flip) that the leveraged position will hit the liquidation threshold and completely wipe out the $50,000 equity within just two months. It vividly demonstrates why high leverage (20:1) combined with a 23% annual volatility makes this an extremely high-risk strategy.
 
-Suppose now that the hedge fund will sell the stock for a profit of at least $100,000 if the value of the stock rises to at least $1,100,000 at the end of the one at the first 100 trading days, sell it for a loss if the value falls velow $950,00 at the end of one of the first 100 trading days, or sell after 100 trading days if the closing price has stayed between $950,000 and $1,100,000. Ignore trading costs and interest when answering theses questions.
+Suppose now that the hedge fund will sell the stock for a profit of at least $100,000 if the value of the stock rises to at least $1,100,000 at the end of the one at the first 100 trading days, sell it for a loss if the value falls below $950,00 at the end of one of the first 100 trading days, or sell after 100 trading days if the closing price has stayed between $950,000 and $1,100,000. Ignore trading costs and interest when answering theses questions.
 
 **Problem 5**: *Probability of profit*
 ![t](imgs/problem5.png)
