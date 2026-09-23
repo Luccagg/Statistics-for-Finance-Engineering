@@ -19,5 +19,5 @@
 ![t](imgs/log_vs_simple.png)
 
 > That's trivial in R because the native function cor() calculates the correlation between the two returns
-
+If correlation is equal to one than the two assets have a positive correlation meaning that holding both assets provides no hedging benefit
 ![t](imgs/correlation_gm.png)
