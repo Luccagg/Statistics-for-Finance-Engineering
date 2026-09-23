@@ -48,9 +48,8 @@ Suppose that the daily log returns on the stock have a mean of 0.05/year and a s
 Suppose now that the hedge fund will sell the stock for a profit of at least $100,000 if the value of the stock rises to at least $1,100,000 at the end of the one at the first 100 trading days, sell it for a loss if the value falls velow $950,00 at the end of one of the first 100 trading days, or sell after 100 trading days if the closing price has stayed between $950,000 and $1,100,000. Ignore trading costs and interest when answering theses questions.
 **Problem 5**: *Probability of profit*
 ![t](imgs/problem5.png)
-
 **Solution**:
-> The `problem5.R` program will simulate the variation of the asset price in 100 days, and we select all days where the thresholds are crossed then we apply an `if` condition to filter the first day each barrier is hit the we calculate the mean of the results of the 100,000 simulations we run and arrive at the probability that the hedge fund will make a profit of at least $100,000
+> The `problem5.R` program will simulate the variation of the asset price in 100 days, and we select all days where the thresholds are crossed then we apply an `if` condition to filter the first day each barrier is hit ,then we calculate the mean of the results of the 100,000 simulations we run and arrive at the conclusion that the hedge fund will make a profit of at least $100,000 with probability of 0.38775 ~ 39%.
 
 ![t](imgs/probability_profit.png)
 
