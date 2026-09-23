@@ -29,3 +29,22 @@
 > Just as with Problem 1, we plot the returns without difficulty. Regarding the possible correlation between the Microsoft and Merck returns, there is some correlation between them; however, we have some positive outliers in Merck returns that are negatively correlated with the Microsoft returns of the same period, such as a point at coordinates ~ (0.1) for MSFT and ~ (-0.15) for MRK.
 
 ![t](imgs/msft_mrk_plot.png)
+
+# Simulations
+**Hedge funds can earn high proﬁts through the use of leverage, but leverage
+also creates high risk. The simulations in this section explore the eﬀects of
+leverage in a simpliﬁed setting.
+Suppose a hedge fund owns $1,000,000 of stock and used $50,000 of its
+own capital and $950,000 in borrowed money for the purchase. Suppose that
+if the value of the stock falls below $950,000 at the end of any trading day,
+then the hedge fund will sell all the stock and repay the loan. This will wipe
+out its $50,000 investment. The hedge fund is said to be leveraged 20:1 since
+its position is 20 times the amount of its own capital invested.
+Suppose that the daily log returns on the stock have a mean of 0.05/year
+and a standard deviation of 0.23/year.
+√ These can be converted to rates per
+trading day by dividing by 253 and 253, respectively.**
+**Problem 4**: *Simulating the risk of a hedge fund leveraged position*
+![t](imgs/problem4.png)
+
+**solution**:
