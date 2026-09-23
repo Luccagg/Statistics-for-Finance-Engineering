@@ -41,6 +41,6 @@ Suppose that the daily log returns on the stock have a mean of 0.05/year and a s
 ![t](imgs/problem4.png)
 
 **Solution**:
-> The `problem4.R` script simulates daily stock price paths utilizing a random walk model derived from the annualized parameters scaled down to daily trading intervals. By tracking the daily valuation of the portfolio, the simulation calculates the likelihood that the stock falls below the $950,000 margin threshold, triggering a forced liquidation and a complete loss of the $50,000 capital investment.
+> The `problem4.R` script simulates daily stock price paths utilizing a random walk model derived from the annualized parameters scaled down to daily trading intervals. By tracking the daily valuation of the portfolio, the simulation calculates the likelihood that the stock falls below the $950,000 margin threshold, triggering a forced liquidation and a complete loss of the $50,000 capital investment. In the `problem4.R` code you will see more comments explaining every line of code.
 
 
