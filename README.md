@@ -28,6 +28,6 @@
 ![t](imgs/problem3.png)
 
 **Solution**:
->Just as the problem 1, we plot the returns without difficult. The answer to the the possible correlation between the Microsoft and Merck returns is that are some correlation between the returns, but we have some positive outliers in Merck returns that are negative correlated with the Microsoft returns of the same period, like a point in coordinates ~ (1.0) for MRK and ~ -0.15
+>Just as the problem 1, we plot the returns without difficult. The answer to the the possible correlation between the Microsoft and Merck returns is that are some correlation between the returns, but we have some positive outliers in Merck returns that are negative correlated with the Microsoft returns of the same period, like a point in coordinates ~ (1.0) for MRK and ~ (-0.15)
 
 ![t](imgs/msft_mrk_plot.png)
