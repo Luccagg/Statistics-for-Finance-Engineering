@@ -31,7 +31,7 @@
 ![t](imgs/msft_mrk_plot.png)
 
 # Simulations
-***Hedge funds can earn high proﬁts through the use of leverage, but leverage
+****Hedge funds can earn high proﬁts through the use of leverage, but leverage
 also creates high risk. The simulations in this section explore the eﬀects of
 leverage in a simpliﬁed setting.
 Suppose a hedge fund owns $1,000,000 of stock and used $50,000 of its
@@ -43,8 +43,8 @@ its position is 20 times the amount of its own capital invested.
 Suppose that the daily log returns on the stock have a mean of 0.05/year
 and a standard deviation of 0.23/year.
 √ These can be converted to rates per
-trading day by dividing by 253 and 253, respectively.
-***
+trading day by dividing by 253 and 253, respectively.****
+
 **Problem 4**: *Simulating the risk of a hedge fund leveraged position*
 ![t](imgs/problem4.png)
 
