@@ -56,6 +56,7 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 ![t](imgs/probability_profit.png)
 
 **Problem 6**: *Probability of loss*
+
 ![t](imgs/problem6.png)
 
 **Solution**:
