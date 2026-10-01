@@ -66,5 +66,3 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 **Problem 7**: *Expected profit*
 
 ![t](imgs/problem7.png)
-
-
