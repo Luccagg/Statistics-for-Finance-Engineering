@@ -67,9 +67,13 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 
 ![t](imgs/problem7.png)
 > We break down the trade into three mutually exclusive, path-dependent outcomes. Let X be the final profit of the hedge fund. Over the 100 days, exactly one of three scenarios will happen:
+
 > 1 - Event A (Stop-Loss): The stock price falls below 950,000 dollars on day $\lambda \le 100$ before ever hitting the upper barrier.
+
 > 2 - Event B (Take-Profit Triggered): The stock price rises to at least 1,100,000 dollars on day, $\lambda \le 100$ before ever hitting the lower barrier.
+
 > 3 - Event $C$ (Expiration): Neither barrier is crossed during the first 100 trading days and the position is closed at day 100.
+
 > If event $A$ occurs: the fund liquited his position and repay the loan, wiping out his initial investment $-$$50,000
 > ```math
 > \text{Profit} \mid A = -\$50,000
