@@ -66,3 +66,5 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 **Problem 7**: *Expected profit*
 
 ![t](imgs/problem7.png)
+> We break down the trade into three mutually exclusive, path-dependent outcomes. Let X be the final profit of the hedge fund. Over the 100 days, exactly one of three scenarios will happen:
+1⁰Event A (Stop-Loss): The stock price falls below $950,000 on day $\lambda <= 100$ 
