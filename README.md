@@ -76,7 +76,7 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 
 > If event $A$ occurs: the fund liquited his position and repay the loan, wiping out his initial investment $-$$50,000
 > ```math
-> \text{Profit} \mid A = -\$1,000,000
+> \text{Profit} \mid A = -\$50,000
 > ```
 
 
