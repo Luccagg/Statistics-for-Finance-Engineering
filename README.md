@@ -70,4 +70,4 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 
 > 1 - Event A (Stop-Loss): The stock price falls below 950,000 dollars on day $\lambda \le 100$ before ever hitting the upper barrier.
 
-> 2 - Event B (Take-Profit Triggered): The stock price rises to at least &dollar;1,000,000 on day, $\lambda \le 100$
+> 2 - Event B (Take-Profit Triggered): The stock price rises to at least 1,100,000 dollars on day, $\lambda \le 100$
