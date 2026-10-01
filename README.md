@@ -62,3 +62,9 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 **Solution**:
 > The `problem6.R` differs from `problem5.R` in the filter applied by the `if` and `else if` in the final part of the script. After finding the first day that each barrier is hit, we then determine if a loss has occured (we reach the lower barrier and sold the asset below $950,000) we assign 1 to the `loss` vector, otherwise then we assign 0 to the loss vector (the upper barrier was hit before lower barrier, so we sold the asset gaining a profit), or if the price stays between $950,000 and $1,000,000 we sold the asset in the last day and check if the final price was less than what we begin `final_price <- price[100]` `loss[i] <- as.numeric(final_price<1000000)` then we take the mean of all the losses results from the ***Monte Carlo Simulation***, so we get a probability of `0.59518` or ~ 59% that the hedge fund will suffer a loss
 ![t](imgs/probability_loss.png)
+
+**Problem 7**: *Expected profit*
+
+![t](imgs/problem7.png)
+
+
