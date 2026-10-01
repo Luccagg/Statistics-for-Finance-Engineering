@@ -67,30 +67,21 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 
 ![t](imgs/problem7.png)
 > We break down the trade into three mutually exclusive, path-dependent outcomes. Let X be the final profit of the hedge fund. Over the 100 days, exactly one of three scenarios will happen:
-
 > 1 - Event A (Stop-Loss): The stock price falls below 950,000 dollars on day $\lambda \le 100$ before ever hitting the upper barrier.
-
 > 2 - Event B (Take-Profit Triggered): The stock price rises to at least 1,100,000 dollars on day, $\lambda \le 100$ before ever hitting the lower barrier.
-
 > 3 - Event $C$ (Expiration): Neither barrier is crossed during the first 100 trading days and the position is closed at day 100.
-
 > If event $A$ occurs: the fund liquited his position and repay the loan, wiping out his initial investment $-$$50,000
 > ```math
 > \text{Profit} \mid A = -\$50,000
 > ```
-
-
 >If event $B$ occurs: the stock is sold at the the exact price when the upper barrier is breached $\text{Price} \ge 1{,}100{,}000$. The profit is the stock appreciation minus the initial purchase price of \$1,000,000 -> 
 > ```math
 > \text{Profit} \mid B = \text{Price}_{\tau_B}- \$1,000,000
 > ```
-
 > If Event $C$ occurs: The position is held until day 100 and liquidated at the closing price $\text{Price}_{100}$ (which remained strictly between \$950,000 and \$1,100,000 for all prior days):
 > ```math
 > \text{Profit} \mid C = \text{Price}_{\tau_C}- \$1,000,000
 > ```
-
-
 > The formula for computing the Expectation of X given the event ($A$, $B$ or $C$) happened:
 > ```math
 > \mathbb{E}[X] = (-\$50,000) \cdot P(A) + \mathbb{E}[\text{Price}_{\tau_B} - \$1,000,000 \mid B] \cdot P(B) + \mathbb{E}[\text{Price}_{\tau_C} - \$1,000,000 \mid C] \cdot P(C)
