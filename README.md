@@ -89,3 +89,7 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 > ```math
 > \text{Profit} \mid C = \text{Price}_{\tau_B}- \$1,000,000
 > ```
+
+> ```math
+> \mathbb{E}[X] = (-\$50,000) \cdot P(A) + \mathbb{E}[\text{Price}_{\tau_B} - \$1,000,000 \mid B] \cdot P(B) + \mathbb{E}[\text{Price}_{100} - \$1,000,000 \mid C] \cdot P(C)
+> ```
