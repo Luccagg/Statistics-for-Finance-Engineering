@@ -75,6 +75,10 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 > 3 - Event $C$ (Expiration): Neither barrier is crossed during the first 100 trading days and the position is closed at day 100.
 
 > If event $A$ occurs: the fund liquited his position and repay the loan, wiping out his initial investment $-$$50,000
+> ```math
+> \text{Profit} \mid A = -\$1,000,000
+> ```
+
 
 >If event $B$ occurs: the stock is sold at the the exact price when the upper barrier is breached $\text{Price} \ge 1{,}100{,}000$. The profit is the stock appreciation minus the initial purchase price of \$1,000,000 -> 
 > ```math
