@@ -72,7 +72,7 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 
 > 2 - Event B (Take-Profit Triggered): The stock price rises to at least 1,100,000 dollars on day, $\lambda \le 100$ before ever hitting the lower barrier.
 
-> 3 - Event $C$ (Expiration): Neither barrier is crossed during the first 100 trading days and the position is closed at day 100.
+> 3 - Event $C$ (Expiration): Neither barrier is crossed during the first 100 trading days and the position is closed at day $\lambda \e 100$.
 
 > If event $A$ occurs: the fund liquited his position and repay the loan, wiping out his initial investment $-$$50,000
 > ```math
