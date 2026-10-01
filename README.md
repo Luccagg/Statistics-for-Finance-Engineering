@@ -87,7 +87,7 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 
 > If Event $C$ occurs: The position is held until day 100 and liquidated at the closing price $\text{Price}_{100}$ (which remained strictly between \$950,000 and \$1,100,000 for all prior days):
 > ```math
-> \text{Profit} \mid C = \text{Price}_{\tau_B}- \$1,000,000
+> \text{Profit} \mid C = \text{Price}_{\tau_C}- \$1,000,000
 > ```
 
 
