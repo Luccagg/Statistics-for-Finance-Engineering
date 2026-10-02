@@ -74,14 +74,15 @@ The output yields `mean(below) == 0.50988`. This indicates that out of 100,000 s
 > **Objective:** Calculate the probabilities of specific path-dependent outcomes and the expected value of the portfolio over a 100-day window, introducing an upper take-profit barrier.
 
 **Trading Rules:**
-1.  **Take-Profit:** Sell if $P_t \ge \$1{,}100{,}000$ (Profit $\ge \$100{,}000$).
-2.  **Stop-Loss:** Sell if $P_t \le \$950{,}000$ (Loss of \$50,000).
+1.  **Take-Profit:** Sell if $P_t \ge \$1{,}100{,}000$ ($\text{Profit} \ge \$100{,}000$).
+2.  **Stop-Loss:** Sell if $P_t \le \$950{,}000$ ($\text{Loss of } \$50{,}000$).
 3.  **Expiration:** Sell at $t = 100$ if neither barrier is breached.
 
 We can define the stopping times for our barriers as:
 
-$$\tau_A = \inf\{t \le 100 : P_t \le 950{,}000\}$$
-$$\tau_B = \inf\{t \le 100 : P_t \ge 1{,}100{,}000\}$$
+$$\tau_A = \inf\{t \le 100 : P_t \le \$950{,}000\}$$
+
+$$\tau_B = \inf\{t \le 100 : P_t \ge \$1{,}100{,}000\}$$
 
 **Results:**
 *   **Probability of Profit (Problem 5):** `problem5.R` filters paths where $\tau_B < \tau_A$. The simulation yields a probability of `0.38775` ($\sim 39\%$) of securing at least \$100,000 in profit.
