@@ -90,7 +90,7 @@ $$\tau_B = \inf\{t \le 100 : P_t \ge \$1{,}100{,}000\}$$
 
 **Expected Profit Calculation (Problem 7):**
 Let $X$ be the final profit. We partition the sample space into three mutually exclusive events based on our stopping times:
-*   **Event A (Ruin):** Lower barrier hit first. $\text{Profit} \mid A = -\$50{,}000$
+*   **Event A (Ruin):** Lower barrier hit first. $$\text{Profit} \mid A = -\$50{,}000$
 *   **Event B (Success):** Upper barrier hit first. $\text{Profit} \mid B = P_{\tau_B} - \$1{,}000{,}000$
 *   **Event C (Expiration):** No barrier hit. $\text{Profit} \mid C = P_{100} - \$1{,}000{,}000$
 
