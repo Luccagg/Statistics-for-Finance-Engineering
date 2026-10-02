@@ -1,92 +1,98 @@
-# Finance Engineering
-*Solving problems in quantitative finance with statistics and applied math*
+# Quantitative Finance & Applied Statistics
+*Solving problems in financial econometrics and statistical arbitrage through mathematical modeling and R.*
 
-**Problem 1**: *Analysis of General Motors and Ford returns*
-![t](imgs/problem1.png)
+---
 
-**Solution**:
-> The `problem1.R` program will read the dataset `Stock_bond.csv` containing daily volumes, adjusted closing (AC) prices of stocks and the S&P 500 (columns B–W), and yields on bonds (columns X–AD) from January 2, 1987, to September 1, 2006. It will then plot the returns of General Motors and Ford and seek to answer questions about the correlation between the two. The graph plotting both returns is shown below (the answer for problem 1 is true for all three questions):
+## Part I: Equity Return Analysis & Correlation
 
-![t](imgs/returns_plot.png)
+**Dataset Overview:** The underlying dataset (`Stock_bond.csv`) contains daily volumes, adjusted closing (AC) prices of stocks and the S&P 500, as well as bond yields, spanning from January 2, 1987, to September 1, 2006.
 
-**Problem 2**: *Log Returns vs Simple Returns and their correlations*
-![t](imgs/problem2.png)
+### Problem 1: Return Dynamics of General Motors and Ford
+> **Objective:** Analyze the historical daily returns of GM and Ford to identify statistical correlations.
 
-**Solution**:
-> Logarithm return vs. Simple Return of General Motors:
+**Mathematical Formulation:**
+The simple return $R_t$ at time $t$ is given by the ratio of prices $P$:
 
-![t](imgs/log_vs_simple.png)
+$$R_t = \frac{P_t - P_{t-1}}{P_{t-1}}$$
 
-> That's trivial in R because the native function `cor()` calculates the correlation between the two returns.
-> If correlation is equal to one, then the two assets have a positive correlation, meaning that holding both assets provides no hedging benefit. You can see that the log return of GM is very correlated to the simple return of GM, as `cor(GMReturn, LogGMReturn) = 0.995408`:
+**Implementation & Results:**
+The `problem1.R` script reads the historical data and plots the returns. Visual inspection of the graph below demonstrates the volatility clustering and correlation structure between the two automakers across the evaluated decades.
 
-![t](imgs/correlation_gm.png)
+![Returns Plot](imgs/returns_plot.png)
 
-**Problem 3**: *Analysis of Microsoft and Merck returns (like Problem 1)*
-![t](imgs/problem3.png)
+### Problem 2: Log Returns vs. Simple Returns
+> **Objective:** Compare the statistical behavior of logarithmic returns and simple returns for General Motors.
 
-**Solution**:
-> Just as with Problem 1, we plot the returns without difficulty. Regarding the possible correlation between the Microsoft and Merck returns, there is some correlation between them; however, we have some positive outliers in Merck returns that are negatively correlated with the Microsoft returns of the same period, such as a point at coordinates ~ (0.1) for MSFT and ~ (-0.15) for MRK.
+**Mathematical Formulation:**
+The logarithmic (continuously compounded) return $r_t$ is defined as:
 
-![t](imgs/msft_mrk_plot.png)
+$$r_t = \ln\left(\frac{P_t}{P_{t-1}}\right) = \ln(1 + R_t)$$
 
-# Simulations
-Hedge funds can earn high profits through the use of leverage, but leverage also creates high risk. The simulations in this section explore the effects of leverage in a simplified setting.
+Using the Taylor series expansion for $\ln(1 + x) \approx x$ for small $x$, we expect $r_t \approx R_t$ for small daily variations. 
 
-Suppose a hedge fund owns $1,000,000 of stock and used $50,000 of its own capital and $950,000 in borrowed money for the purchase. Suppose that if the value of the stock falls below $950,000 at the end of any trading day, then the hedge fund will sell all the stock and repay the loan. This will wipe out its $50,000 investment. The hedge fund is said to be leveraged 20:1 since its position is 20 times the amount of its own capital invested.
+**Implementation & Results:**
+This theoretical approximation holds empirically. Calculating the Pearson correlation coefficient via the native `cor()` function in R yields a nearly perfect linear relationship: `cor(GMReturn, LogGMReturn) = 0.995408`. Because this correlation is essentially $1$, holding positions based on opposite return metrics provides zero hedging benefit.
 
-Suppose that the daily log returns on the stock have a mean of 0.05/year and a standard deviation of 0.23/year. These can be converted to rates per trading day by dividing by 253 and sqrt(253), respectively.
+![Log vs Simple Return](imgs/log_vs_simple.png)
+![Correlation GM](imgs/correlation_gm.png)
 
-**Problem 4**: *Simulating the risk of a hedge fund leveraged position*
-![t](imgs/problem4.png)
+### Problem 3: Outlier Analysis in Microsoft and Merck
+> **Objective:** Evaluate correlations and identify structural breaks or isolated outliers between MSFT and MRK.
 
-**Solution**:
-> The `problem4.R` script simulates daily stock price paths utilizing a random walk model derived from the annualized parameters scaled down to daily trading intervals. By tracking the daily valuation of the portfolio, the simulation calculates the likelihood that the stock falls below the $950,000 margin threshold, triggering a forced liquidation and a complete loss of the $50,000 capital investment. In the `problem4.R` code you will see more comments explaining every line of code.
+**Implementation & Results:**
+While a general baseline correlation exists, the scatter plot reveals distinct positive outliers in Merck's returns that are negatively correlated with Microsoft during the same period. For instance, a notable divergence occurs at coordinates roughly equivalent to $(0.1)$ for MSFT and $(-0.15)$ for MRK.
 
-> When this code runs we get `mean(below) == 0,50988` which is roughly 51%. This means that for the 100,000 simulated paths about 51,000 of them experienced a dip below $950.000 at some point during the 45 days window. This means there is over a 50% chance (essentially a coin flip) that the leveraged position will hit the liquidation threshold and completely wipe out the $50,000 equity within just two months. It vividly demonstrates why high leverage (20:1) combined with a 23% annual volatility makes this an extremely high-risk strategy.
+![MSFT vs MRK](imgs/msft_mrk_plot.png)
 
-Suppose now that the hedge fund will sell the stock for a profit of at least $100,000 if the value of the stock rises to at least $1,100,000 at the end of the one at the first 100 trading days, sell it for a loss if the value falls below $950,00 at the end of one of the first 100 trading days, or sell after 100 trading days if the closing price has stayed between $950,000 and $1,100,000. Ignore trading costs and interest when answering theses questions.
+---
 
-**Problem 5**: *Probability of profit*
-![t](imgs/problem5.png)
+## Part II: Monte Carlo Simulations & Leverage Risk
 
-**Solution**:
-> The `problem5.R` program will simulate the variation of the asset price in 100 days, and we select all days where the thresholds are crossed then we apply an `if` condition to filter the first day each barrier is hit ,then we calculate the mean of the results of the 100,000 simulations we run and arrive at the conclusion that the hedge fund will make a profit of at least $100,000 with probability of 0.38775 ~ 39%.
+Hedge funds frequently exploit statistical edges through leverage, which amplifies both expected returns and downside risk. This section simulates a highly leveraged portfolio to assess the probability of ruin and expected payoffs.
 
-![t](imgs/probability_profit.png)
+**Portfolio Parameters:**
+*   **Total Position:** $1,000,000
+*   **Capital Structure:** $50,000 equity (own capital) + $950,000 debt (borrowed).
+*   **Leverage Ratio:** 20:1 (Position is 20x the equity).
+*   **Margin Call / Ruin:** Liquidation occurs if the portfolio value falls below $950,000, wiping out the $50,000 equity.
 
-**Problem 6**: *Probability of loss*
+**Stochastic Model:**
+We model the daily log returns assuming a discrete-time approximation of Geometric Brownian Motion, where $r_t \sim \mathcal{N}(\mu_{daily}, \sigma_{daily}^2)$. 
+Given an annualized mean $\mu = 0.05$ and annualized volatility $\sigma = 0.23$, the daily parameters (assuming 253 trading days) are:
 
-![t](imgs/problem6.png)
+$$\mu_{daily} = \frac{0.05}{253}, \quad \sigma_{daily} = \frac{0.23}{\sqrt{253}}$$
 
-**Solution**:
-> The `problem6.R` differs from `problem5.R` in the filter applied by the `if` and `else if` in the final part of the script. After finding the first day that each barrier is hit, we then determine if a loss has occured (we reach the lower barrier and sold the asset below $950,000) we assign 1 to the `loss` vector, otherwise then we assign 0 to the loss vector (the upper barrier was hit before lower barrier, so we sold the asset gaining a profit), or if the price stays between $950,000 and $1,000,000 we sold the asset in the last day and check if the final price was less than what we begin `final_price <- price[100]` `loss[i] <- as.numeric(final_price<1000000)` then we take the mean of all the losses results from the ***Monte Carlo Simulation***, so we get a probability of `0.59518` or ~ 59% that the hedge fund will suffer a loss
-![t](imgs/probability_loss.png)
+### Problem 4: Probability of Ruin (Margin Call)
+> **Objective:** Simulate the risk of a margin call over a 45-day window.
 
-**Problem 7**: *Expected profit*
+**Implementation & Results:**
+The `problem4.R` script executes a Monte Carlo simulation generating 100,000 price paths using a random walk model. The script tracks daily valuations to check if the portfolio breaches the lower barrier ($\le \$950,000$). 
 
-![t](imgs/problem7.png)
-> We break down the trade into three mutually exclusive, path-dependent outcomes. Let X be the final profit of the hedge fund. Over the 100 days, exactly one of three scenarios will happen:
+The output yields `mean(below) == 0.50988`. This indicates that out of 100,000 simulated paths, approximately 51% experienced a drawdown below the margin threshold. A 20:1 leverage ratio combined with a 23% annual volatility creates essentially a coin-flip probability of total ruin within just 45 days.
 
-> 1 - Event A (Stop-Loss): The stock price falls below 950,000 dollars on day $\lambda \le 100$ before ever hitting the upper barrier.
+### Problems 5, 6 & 7: Barrier Options & Expected Profit
+> **Objective:** Calculate the probabilities of specific path-dependent outcomes and the expected value of the portfolio over a 100-day window, introducing an upper take-profit barrier.
 
-> 2 - Event B (Take-Profit Triggered): The stock price rises to at least 1,100,000 dollars on day, $\lambda \le 100$ before ever hitting the lower barrier.
+**Trading Rules:**
+1.  **Take-Profit:** Sell if $P_t \ge \$1,100,000$ (Profit $\ge \$100,000$).
+2.  **Stop-Loss:** Sell if $P_t \le \$950,000$ (Loss of $50,000).
+3.  **Expiration:** Sell at $t = 100$ if neither barrier is breached.
 
-> 3 - Event $C$ (Expiration): Neither barrier is crossed during the first 100 trading days and the position is closed at day $\lambda = 100$.
+We can define the stopping times for our barriers as:
 
-> If event $A$ occurs: the fund liquited his position and repay the loan, wiping out his initial investment $-$$50,000
-> ```math
-> \text{Profit} \mid A = -\$50,000
-> ```
->If event $B$ occurs: the stock is sold at the the exact price when the upper barrier is breached $\text{Price} \ge 1{,}100{,}000$. The profit is the stock appreciation minus the initial purchase price of \$1,000,000 -> 
-> ```math
-> \text{Profit} \mid B = \text{Price}_{\tau_B}- \$1,000,000
-> ```
-> If Event $C$ occurs: The position is held until day 100 and liquidated at the closing price $\text{Price}_{100}$ (which remained strictly between \$950,000 and \$1,100,000 for all prior days):
-> ```math
-> \text{Profit} \mid C = \text{Price}_{\tau_C}- \$1,000,000
-> ```
-> The formula for computing the Expectation of X given the event ($A$, $B$ or $C$) happened:
-> ```math
-> \mathbb{E}[X] = (-\$50,000) \cdot P(A) + \mathbb{E}[\text{Price}_{\tau_B} - \$1,000,000 \mid B] \cdot P(B) + \mathbb{E}[\text{Price}_{\tau_C} - \$1,000,000 \mid C] \cdot P(C)
-> ```
+$$\tau_A = \inf\{t \le 100 : P_t \le 950,000\}$$
+$$\tau_B = \inf\{t \le 100 : P_t \ge 1,100,000\}$$
+
+**Results:**
+*   **Probability of Profit (Problem 5):** `problem5.R` filters paths where $\tau_B < \tau_A$. The simulation yields a probability of `0.38775` ($\sim 39\%$) of securing at least $100,000 in profit.
+*   **Probability of Loss (Problem 6):** `problem6.R` identifies paths where the stop-loss is triggered ($\tau_A < \tau_B$) OR the expiration price $P_{100} < \$1,000,000$. The probability of realizing a loss is `0.59518` ($\sim 59\%$).
+
+**Expected Profit Calculation (Problem 7):**
+Let $X$ be the final profit. We partition the sample space into three mutually exclusive events based on our stopping times:
+*   **Event A (Ruin):** Lower barrier hit first. $\text{Profit} \mid A = -\$50,000$
+*   **Event B (Success):** Upper barrier hit first. $\text{Profit} \mid B = P_{\tau_B} - \$1,000,000$
+*   **Event C (Expiration):** No barrier hit. $\text{Profit} \mid C = P_{100} - \$1,000,000$
+
+By the Law of Total Expectation, the overall expected profit is:
+
+$$\mathbb{E}[X] = (-\$50,000) P(A) + \mathbb{E}[P_{\tau_B} - \$1,000,000 \mid B] P(B) + \mathbb{E}[P_{100} - \$1,000,000 \mid C] P(C)$$
