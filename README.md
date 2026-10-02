@@ -87,6 +87,6 @@ Suppose now that the hedge fund will sell the stock for a profit of at least $10
 > \text{Profit} \mid C = \text{Price}_{\tau_C}- \$1,000,000
 > ```
 > The formula for computing the Expectation of X given the event ($A$, $B$ or $C$) happened:
-> ```math
-> \mathbb{E}[X] = (-\$50,000) \cdot P(A) + \mathbb{E}[\text{Price}_{\tau_B} - \$1,000,000 \mid B] \cdot P(B) + \mathbb{E}[\text{Price}_{\tau_C} - \$1,000,000 \mid C] \cdot P(C)
-> ```
+ ```math
+ \mathbb{E}[X] = (-\$50,000) \cdot P(A) + \mathbb{E}[\text{Price}_{\tau_B} - \$1,000,000 \mid B] \cdot P(B) + \mathbb{E}[\text{Price}_{\tau_C} - \$1,000,000 \mid C] \cdot P(C)
+ ```
