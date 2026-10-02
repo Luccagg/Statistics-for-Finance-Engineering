@@ -69,7 +69,7 @@ $$\mu_{\text{daily}} = \frac{0.05}{253}, \quad \sigma_{\text{daily}} = \frac{0.2
 The `problem4.R` script executes a Monte Carlo simulation generating 100,000 price paths using a random walk model. The script tracks daily valuations to check if the portfolio breaches the lower barrier ($P_t \le 950,000$). 
 
 The output yields `mean(below) == 0.50988`. This indicates that out of 100,000 simulated paths, approximately 51% experienced a drawdown below the margin threshold. A 20:1 leverage ratio combined with a 23% annual volatility creates essentially a coin-flip probability of total ruin within just 45 days.
-![t](imgs/correlation_gm.png)
+![t](imgs/probability_loss.png)
 
 ### Problems 5, 6 & 7: Barrier Options & Expected Profit
 > **Objective:** Calculate the probabilities of specific path-dependent outcomes and the expected value of the portfolio over a 100-day window, introducing an upper take-profit barrier.
